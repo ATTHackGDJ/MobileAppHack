@@ -84,7 +84,7 @@
                 android:id="@+id/login_input_email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo"
+                android:hint="Correo "
                 android:singleLine="true"
                 android:textSize="16sp" />
 
