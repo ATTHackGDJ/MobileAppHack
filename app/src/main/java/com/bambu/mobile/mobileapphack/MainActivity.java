@@ -1,5 +1,6 @@
 package com.bambu.mobile.mobileapphack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,7 +24,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private PlaceManager placeManager;
     private PlaceEventListener placeEventListener;
@@ -35,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Beavent");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -50,23 +54,29 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(listAdapter);
 
-        listAdapter.add("Setting Gimbal API Key");
+        listAdapter.add("Campus Party");
         listAdapter.notifyDataSetChanged();
         Gimbal.setApiKey(this.getApplication(), "2ffe0930-c0a0-42f3-b073-c11c53fc19bb");
+        listView.setOnItemClickListener(this);
 
 
         placeEventListener = new PlaceEventListener() {
             @Override
             public void onVisitStart(Visit visit) {
                 log(visit.toString());
-                listAdapter.add(String.format("Start Visit for %s", visit.getPlace().getName()));
+//                listAdapter.add(String.format("Start Visit for %s", visit.getPlace().getName()));
                 log(visit.getPlace().getName());
                 log(visit.getArrivalTimeInMillis() + "");
                 Date date = new Date(visit.getArrivalTimeInMillis());
                 DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                 String dateFormatted = formatter.format(date);
                 log("Time enter: " + dateFormatted);
-                listAdapter.notifyDataSetChanged();
+//                listAdapter.notifyDataSetChanged();
+                Intent intent = new Intent(MainActivity.this, IntinerarioActivity.class);
+                intent.putExtra("timeLlegada", dateFormatted);
+                intent.putExtra("flag", 1);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slider_in_right, R.anim.slide_out_left);
             }
 
             @Override
@@ -78,16 +88,26 @@ public class MainActivity extends AppCompatActivity {
                 DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                 String dateFormatted = formatter.format(date);
                 log("Time exit: " + dateFormatted);
-                listAdapter.add(String.format("End Visit for %s", visit.getPlace().getName()));
-                listAdapter.notifyDataSetChanged();
+//                Snackbar.make(fab, "Salio del evento a las " + dateFormatted, Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+                Intent intent = new Intent(MainActivity.this, IntinerarioActivity.class);
+                intent.putExtra("timeLlegada", dateFormatted);
+                intent.putExtra("flag", 2);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slider_in_right, R.anim.slide_out_left);
+//                listAdapter.add(String.format("End Visit for %s", visit.getPlace().getName()));
+//                listAdapter.notifyDataSetChanged();
             }
         };
+
 
         placeManager = PlaceManager.getInstance();
         placeManager.addListener(placeEventListener);
         placeManager.startMonitoring();
 
         CommunicationManager.getInstance().startReceivingCommunications();
+
     }
 
     public void log(String content) {
@@ -115,5 +135,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        startActivity(new Intent(MainActivity.this, EventsActivity.class));
+        overridePendingTransition(R.anim.slider_in_right, R.anim.slide_out_left);
     }
 }

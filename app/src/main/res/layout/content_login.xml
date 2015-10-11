@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary_dark"
+    android:background="@color/accent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -19,14 +19,12 @@
         android:layout_marginRight="20dp"
         android:background="@mipmap/facebook" />
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="140dp"
-        android:text="EventBeacon"
-        android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:src="@mipmap/beavent_blanco" />
 
     <LinearLayout
         android:layout_width="match_parent"
