@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.bambu.mobile.mobileapphack.IniciarSecionActivity"
+    tools:showIn="@layout/activity_iniciar_secion">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/select"
+                android:layout_width="11dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/color_primary"
+                android:textColor="@color/color_primary"
+                android:textStyle="normal|bold" />
+
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="51dp"
+                android:layout_marginTop="10dp"
+                android:text="Iniciar Seción"
+                android:textColor="@color/color_primary"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
+
+        </LinearLayout>
+
+
+        <!--<android.support.design.widget.TextInputLayout-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="61dp"-->
+        <!--android:layout_marginRight="65dp"-->
+        <!--android:layout_marginTop="12dp">-->
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="61dp"
+            android:layout_marginRight="65dp"
+
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/registro_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="61dp"
+            android:layout_marginRight="65dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/login_input_email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="60dp"-->
+        <!--android:layout_marginRight="65dp">-->
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_layout_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="61dp"
+            android:layout_marginRight="65dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/login_input_pass"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_layout_confirm_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="61dp"
+            android:layout_marginRight="65dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/registro_input_confirm_pass"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirmar contraseña"
+                android:singleLine="true"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <TextView
+            android:id="@+id/btn_login"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/borde_gris"
+            android:gravity="center"
+            android:text="Iniciar Seción"
+            android:textColor="#A39FA1"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Olvidaste tu contraseña"
+            android:textColor="@color/gris_claro" />
+    </LinearLayout>
+
+
+</RelativeLayout>

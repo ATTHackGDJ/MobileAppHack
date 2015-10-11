@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_primary_dark"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/login_margin_bottom_face"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/facebook" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:text="EventBeacon"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/terminos_condiciones"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/registrar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/more2"
+            android:layout_weight="1"
+            android:background="@drawable/white_stroke_transparent_background"
+            android:gravity="center"
+            android:text="Registrate"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="normal|bold" />
+
+
+        <TextView
+            android:id="@+id/iniciar_secion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/white_stroke_transparent_background"
+            android:gravity="center"
+            android:text="Iniciar Sesión"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="normal|bold" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/terminos_condiciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/login_margin_bottom_terminos"
+        android:gravity="center_horizontal"
+        android:text="Terminos y Condiciones"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+</RelativeLayout>

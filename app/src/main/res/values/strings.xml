@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MobileAppHack</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_login">EventBeacon</string>
+    <string name="title_activity_iniciar_secion">IniciarSecionActivity</string>
+</resources>
+
